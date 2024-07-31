@@ -2,66 +2,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/dark_bg"
     android:orientation="vertical"
-    android:background="@color/colorPageBackground" >
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView" >
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp" >
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
+                android:id="@+id/infoBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/otp_phone_number_info"
-                android:id="@+id/infoBox"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:textColor="@color/colorAccent"
                 android:gravity="center"
+                android:text="  "
+                android:textColor="@color/colorAccent"
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/inputRow"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/background_input"
                 android:digits="0123456789+"
-                android:hint="@string/otp_phone_number_placeholder"
                 android:ems="10"
-                android:layout_marginTop="10dp"
-                android:maxLength="24"
-                android:imeOptions="actionDone"
-                android:id="@+id/inputRow" />
+                android:hint="Enter your number"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_16sdp"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_13ssp" />
 
             <Button
+                android:id="@+id/actionBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/button_login_background"
+                android:stateListAnimator="@null"
                 android:text="@string/otp_action_send_code"
-                android:id="@+id/actionBtn"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:background="@drawable/button_primary"
                 android:textStyle="bold" />
 
+
             <TextView
+                android:id="@+id/resendCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/otp_action_resend_code"
-                android:id="@+id/resendCode"
                 android:layout_marginTop="20dp"
-                android:textColor="@color/colorAccent"
                 android:gravity="center"
+                android:text="@string/otp_action_resend_code"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
                 android:textSize="16dp" />
 
 

@@ -33,13 +33,13 @@
     <color name="drawer_item_select_bg">#292F3B</color>
     <color name="drawer_item_text">#FFFFFF</color>
 
-    <color name="colorPrimaryButton">#D95C4C</color>
-    <color name="colorPrimaryButtonPressed">#C24537</color>
+    <color name="colorPrimaryButton">#3d3b8e</color>
+    <color name="colorPrimaryButtonPressed">#3d3b8e</color>
 
-    <color name="colorPrimaryLight">#C45143</color>
-    <color name="colorPrimaryLight2">#B9665B</color>
+    <color name="colorPrimaryLight">#188cbb</color>
+    <color name="colorPrimaryLight2">#188cba</color>
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="statusBarColor">#C24537</color>
+    <color name="statusBarColor">#3d3b8e</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
     <color name="colorFloatActionButton">#669900</color>
@@ -60,7 +60,7 @@
     <color name="overlay_white">#656668</color>
 
     <color name="bg_welcome_screen_1">#527DAD</color>
-    <color name="bg_welcome_screen_2">#C24537</color>
+    <color name="bg_welcome_screen_2">#3d3b8e</color>
     <color name="bg_welcome_screen_3">#FFAF40</color>
     <color name="bg_welcome_screen_4">#68BF60</color>
 
@@ -108,8 +108,8 @@
 
     <!--    -->
 
-    <color name="fab_like">#C24537</color>
-    <color name="fab_dislike">#03A6FF</color>
+    <!--    <color name="fab_like">#3d3b8e</color>-->
+    <!--    <color name="fab_dislike">#03A6FF</color>-->
 
     <!--    -->
 
@@ -120,30 +120,30 @@
 
     <!--    -->
 
-    <color name="colorBlueButton">#DD7264</color>
-    <color name="colorBlueButtonPressed">#DD7264</color>
+    <color name="colorBlueButton">#188cbb</color>
+    <color name="colorBlueButtonPressed">#3d3b8e</color>
 
-    <color name="colorLangButton">#DD7264</color>
-    <color name="colorLangButtonPressed">#E37A6C</color>
+    <color name="colorLangButton">#188cbb</color>
+    <color name="colorLangButtonPressed">#3d3b8e</color>
 
 
     <!-- -->
 
-    <color name="colorPrimary">#D95C4C</color>
-    <color name="colorPrimaryDark">#C24537</color>
-    <color name="colorAccent">#D95C4C</color>
-    <color name="colorRipple">#E15948</color>
+    <color name="colorPrimary"> #001678</color>
+    <color name="colorPrimaryDark">  #0b5796</color>
+    <color name="colorAccent">#2aa4e6</color>
+    <color name="colorRipple">#3d3b8e</color>
 
     //
 
     <color name="colorLikeIconTint">#606770</color>
-    <color name="colorLikeActiveIconTint">#EB4846</color>
+    <color name="colorLikeActiveIconTint">#3d3b8e</color>
 
     //
 
     <color name="tabBarBackground">#FFFFFF</color>
-    <color name="tabBarIconTint">#606770</color>
-    <color name="tabBarIconTintActive">#D95C4C</color>
+    <color name="tabBarIconTint"></color>
+    <color name="tabBarIconTintActive"></color>
 
     //
 
@@ -159,12 +159,12 @@
 
     //
 
-    <color name="colorSponsored">#FF8500</color>
+    <color name="colorSponsored">#188cbb</color>
     <color name="colorSeparator">#cccccc</color>
     <color name="colorDisabled">#ABABAB</color>
     <color name="colorTextDisabled">#ECECEC</color>
-    <color name="colorBadgeBackground">#C24537</color>
-    <color name="colorCounterBackground">#E32F2D</color>
+    <color name="colorBadgeBackground">#3d3b8e</color>
+    <color name="colorCounterBackground">#3d3b8e</color>
     <color name="colorCounterText">#ffffff</color>
 
     //
@@ -195,6 +195,11 @@
 
     <color name="colorProgressBarTransparent">#275E4646</color>
     <color name="colorCircleItemBorder">#F7F6FB</color>
+
+    <color name="inactive">#8A8989</color>
+    <color name="active">#F64476</color>
+    <color name="input_background">#ECECEC</color>
+    <color name="primary_text">#212121</color>
 
 
 </resources>

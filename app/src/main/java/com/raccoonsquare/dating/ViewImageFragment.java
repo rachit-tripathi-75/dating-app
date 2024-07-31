@@ -386,7 +386,7 @@ public class ViewImageFragment extends Fragment implements Constants, SwipeRefre
 
                 } else {
 
-                    mLikeIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.fab_like), android.graphics.PorterDuff.Mode.SRC_IN);
+//                    mLikeIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.fab_like), android.graphics.PorterDuff.Mode.SRC_IN);
 
                     item.setMyLike(true);
 
@@ -758,7 +758,7 @@ public class ViewImageFragment extends Fragment implements Constants, SwipeRefre
 
         if (item.isMyLike()) {
 
-            mLikeIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.fab_like), android.graphics.PorterDuff.Mode.SRC_IN);
+//            mLikeIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.fab_like), android.graphics.PorterDuff.Mode.SRC_IN);
 
         } else {
 

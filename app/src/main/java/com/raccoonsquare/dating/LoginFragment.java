@@ -83,7 +83,7 @@ public class LoginFragment extends Fragment implements Constants {
 
         setRetainInstance(true);
 
-        if (AccessToken.getCurrentAccessToken()!= null) LoginManager.getInstance().logOut();
+        if (AccessToken.getCurrentAccessToken() != null) LoginManager.getInstance().logOut();
 
         callbackManager = CallbackManager.Factory.create();
 
@@ -227,60 +227,60 @@ public class LoginFragment extends Fragment implements Constants {
 
         // Google Button
 
-        mGoogleSignInButton = rootView.findViewById(R.id.google_sign_in_button);
-        mGoogleSignInButton.setSize(SignInButton.SIZE_WIDE);
-
-        setGooglePlusButtonText(mGoogleSignInButton, getString(R.string.action_login_with_google));
-
-        mGoogleSignInButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                googleSigninActivityResultLauncher.launch(signInIntent);
-            }
-        });
+//        mGoogleSignInButton = rootView.findViewById(R.id.google_sign_in_button);
+//        mGoogleSignInButton.setSize(SignInButton.SIZE_WIDE);
+//
+//        setGooglePlusButtonText(mGoogleSignInButton, getString(R.string.action_login_with_google));
+//
+//        mGoogleSignInButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+//                googleSigninActivityResultLauncher.launch(signInIntent);
+//            }
+//        });
 
         // Facebook button
 
-        loginButton = (LoginButton) rootView.findViewById(R.id.login_button);
-        loginButton.setPermissions("public_profile");
-        loginButton.setFragment(this);
-
-        loginButton.setVisibility(View.VISIBLE);
-
-        // Registering CallbackManager with the LoginButton
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-
-                // Retrieving access token using the LoginResult
-                AccessToken accessToken = loginResult.getAccessToken();
-
-                useLoginInformation(accessToken);
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-        });
-
-        if (!FACEBOOK_AUTHORIZATION) {
-
-            loginButton.setVisibility(View.GONE);
-        }
-
-        if (!GOOGLE_AUTHORIZATION) {
-
-            mGoogleSignInButton.setVisibility(View.GONE);
-        }
+//        loginButton = (LoginButton) rootView.findViewById(R.id.login_button);
+//        loginButton.setPermissions("public_profile");
+//        loginButton.setFragment(this);
+//
+//        loginButton.setVisibility(View.VISIBLE);
+//
+//        // Registering CallbackManager with the LoginButton
+//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//
+//                // Retrieving access token using the LoginResult
+//                AccessToken accessToken = loginResult.getAccessToken();
+//
+//                useLoginInformation(accessToken);
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//
+//            }
+//            @Override
+//            public void onError(FacebookException error) {
+//
+//            }
+//        });
+//
+//        if (!FACEBOOK_AUTHORIZATION) {
+//
+//            loginButton.setVisibility(View.GONE);
+//        }
+//
+//        if (!GOOGLE_AUTHORIZATION) {
+//
+//            mGoogleSignInButton.setVisibility(View.GONE);
+//        }
 
         signinUsername = rootView.findViewById(R.id.signinUsername);
         signinPassword = rootView.findViewById(R.id.signinPassword);
@@ -381,7 +381,8 @@ public class LoginFragment extends Fragment implements Constants {
 
                 } finally {
 
-                    if (AccessToken.getCurrentAccessToken() != null) LoginManager.getInstance().logOut();
+                    if (AccessToken.getCurrentAccessToken() != null)
+                        LoginManager.getInstance().logOut();
 
                     if (!oauth_id.equals("")) {
 
@@ -562,7 +563,7 @@ public class LoginFragment extends Fragment implements Constants {
 
                             Toast.makeText(getActivity(), getString(R.string.error_signin), Toast.LENGTH_SHORT).show();
 
-                            Log.e("response", response.toString());
+                            Log.d("response", response.toString());
                         }
 
                         loading = false;
@@ -629,7 +630,7 @@ public class LoginFragment extends Fragment implements Constants {
             return false;
         }
 
-        return  true;
+        return true;
     }
 
     public Boolean checkPassword() {
@@ -661,7 +662,7 @@ public class LoginFragment extends Fragment implements Constants {
             return false;
         }
 
-        return  true;
+        return true;
     }
 
     @Override

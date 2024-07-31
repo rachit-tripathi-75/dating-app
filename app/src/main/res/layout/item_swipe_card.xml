@@ -95,9 +95,9 @@
         android:background="@drawable/overlay_black">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/skip_white_120dp"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            app:srcCompat="@drawable/hotgame_action_dislike"
             android:layout_gravity="center"/>
 
         <FrameLayout
@@ -114,9 +114,10 @@
         android:background="@drawable/overlay_black">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/like_white_120dp"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:alpha="0.5"
+            app:srcCompat="@drawable/ic_heart"
             android:layout_gravity="center"/>
 
     </FrameLayout>

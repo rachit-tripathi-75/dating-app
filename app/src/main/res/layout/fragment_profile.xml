@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPageBackground">
+    android:background="@drawable/dark_bg">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/profileRefreshLayout"
@@ -16,7 +15,7 @@
             android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+x
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -31,7 +30,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/profile_default_cover" />
+                        app:srcCompat="@color/black" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -912,9 +911,9 @@
                     android:background="@color/colorSeparator" />
 
                 <include
+                    layout="@layout/ad_item"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/ad_item" />
+                    android:layout_height="wrap_content" />
 
                 <LinearLayout
                     android:id="@+id/profileCountersContainer"
@@ -1079,66 +1078,66 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <RelativeLayout
+        android:id="@+id/profileErrorScreen"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/profileErrorScreen"
         android:longClickable="false"
         android:visibility="gone">
 
         <TextView
+            android:id="@+id/profileErrorScreenMsg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/error_data_loading"
-            android:id="@+id/profileErrorScreenMsg"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:gravity="center"
-            android:textColor="@color/gray"
-            android:textSize="18dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:layout_centerVertical="true" />
+            android:text="@string/error_data_loading"
+            android:textColor="@color/gray"
+            android:textSize="18dp" />
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/profileDisabledScreen"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/profileDisabledScreen"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/profileDisabledScreenContent"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:padding="20dp"
-            android:id="@+id/profileDisabledScreenContent">
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <TextView
+                android:id="@+id/profileDisabledScreenMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/label_account_disabled"
-                android:id="@+id/profileDisabledScreenMsg"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
+                android:text="@string/label_account_disabled"
+                android:textColor="@color/dark_blue"
                 android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/dark_blue" />
+                android:textStyle="bold" />
         </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/profileLoadingScreen"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/profileLoadingScreen"
         android:visibility="gone">
 
         <ProgressBar
+            android:id="@+id/profileLoadingScreenProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/profileLoadingScreenProgressBar"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
 </RelativeLayout>

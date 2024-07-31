@@ -12,8 +12,8 @@
     <ProgressBar
         android:id="@+id/hotgame_progressbar"
         style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
 
@@ -178,9 +178,9 @@
                 android:layout_toStartOf="@+id/fab_profile_button"
                 android:layout_toLeftOf="@+id/fab_profile_button"
                 android:src="@drawable/hotgame_action_dislike"
-                app:backgroundTint="@color/fab_dislike"
-                app:fabSize="auto"
-                app:rippleColor="#22ED7563" />
+                android:scaleType="centerCrop"
+                app:maxImageSize="@dimen/_44sdp"
+                app:fabSize="auto" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_profile_button"
@@ -191,7 +191,8 @@
                 android:layout_marginLeft="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
-                android:src="@drawable/ic_action_profile"
+                android:src="@drawable/ic_viewprofile"
+                app:maxImageSize="@dimen/_20sdp"
                 app:backgroundTint="@android:color/white"
                 app:fabSize="mini"
                 app:rippleColor="#225BC9FA" />
@@ -203,10 +204,9 @@
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/fab_profile_button"
                 android:layout_toRightOf="@+id/fab_profile_button"
-                android:src="@drawable/hotgame_action_like"
-                app:backgroundTint="@color/fab_like"
-                app:fabSize="auto"
-                app:rippleColor="#226FE2B3" />
+                android:src="@drawable/ic_heart"
+                app:maxImageSize="@dimen/_44sdp"
+                app:fabSize="auto" />
 
         </RelativeLayout>
 

@@ -66,4 +66,7 @@
     <color name="colorProgressBarTransparent">#275E4646</color>
     <color name="colorCircleItemBorder">#FFFFFF</color>
 
+    <color name="bottom_navigation_text">#FFFFFF</color>
+    <color name="bottom_navigation_background">#0F4671</color>
+
 </resources>

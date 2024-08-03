@@ -202,4 +202,8 @@
     <color name="primary_text">#212121</color>
 
 
+    <color name="bottom_navigation_text">#0F4671</color>
+    <color name="bottom_navigation_background">#eff2fb</color>
+
+
 </resources>

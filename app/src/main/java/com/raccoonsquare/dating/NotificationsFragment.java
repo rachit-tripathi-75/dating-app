@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -53,6 +54,8 @@ public class NotificationsFragment extends Fragment implements Constants, SwipeR
 
     private ProgressDialog pDialog;
 
+    LottieAnimationView loadingLottie;
+    ImageView ivLoadingEmpty;
     RecyclerView mRecyclerView;
     NestedScrollView mNestedView;
 
@@ -115,8 +118,14 @@ public class NotificationsFragment extends Fragment implements Constants, SwipeR
         mItemsContainer = rootView.findViewById(R.id.container_items);
         mItemsContainer.setOnRefreshListener(this);
 
+
         mMessage = rootView.findViewById(R.id.message);
-        mSplash = rootView.findViewById(R.id.splash);
+//        mSplash = rootView.findViewById(R.id.splash);
+
+        //added
+        loadingLottie = rootView.findViewById(R.id.loadingLottie);
+        ivLoadingEmpty = rootView.findViewById(R.id.ivLoadingEmpty);
+
 
         mNestedView = rootView.findViewById(R.id.nested_view);
 
@@ -144,7 +153,7 @@ public class NotificationsFragment extends Fragment implements Constants, SwipeR
                         FriendRequestActionDialog alert = new FriendRequestActionDialog();
 
                         /** Creating a bundle object to store the selected item's index */
-                        Bundle b  = new Bundle();
+                        Bundle b = new Bundle();
 
                         /** Storing the selected item's index in the bundle object */
                         b.putInt("position", position);
@@ -319,6 +328,9 @@ public class NotificationsFragment extends Fragment implements Constants, SwipeR
 
         if (!restore) {
 
+            loadingLottie.playAnimation();
+            ivLoadingEmpty.setVisibility(View.GONE);
+
             showMessage(getText(R.string.msg_loading_2).toString());
 
             getItems();
@@ -452,6 +464,8 @@ public class NotificationsFragment extends Fragment implements Constants, SwipeR
 
         if (itemsAdapter.getItemCount() == 0) {
 
+            loadingLottie.setVisibility(View.GONE);
+            ivLoadingEmpty.setVisibility(View.VISIBLE);
             showMessage(getText(R.string.label_empty_list).toString());
 
         } else {
@@ -470,15 +484,14 @@ public class NotificationsFragment extends Fragment implements Constants, SwipeR
 
         mMessage.setText(message);
         mMessage.setVisibility(View.VISIBLE);
-
-        mSplash.setVisibility(View.VISIBLE);
     }
 
     public void hideMessage() {
 
         mMessage.setVisibility(View.GONE);
 
-        mSplash.setVisibility(View.GONE);
+        loadingLottie.setVisibility(View.GONE);
+        ivLoadingEmpty.setVisibility(View.GONE);
     }
 
     public void clear() {
@@ -561,7 +574,7 @@ public class NotificationsFragment extends Fragment implements Constants, SwipeR
 
     private void hideMenuItems(Menu menu, boolean visible) {
 
-        for (int i = 0; i < menu.size(); i++){
+        for (int i = 0; i < menu.size(); i++) {
 
             menu.getItem(i).setVisible(visible);
         }

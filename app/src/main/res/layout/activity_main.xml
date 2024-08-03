@@ -78,13 +78,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:background="@drawable/bottom_nav_background"
+
+            android:background="@color/bottom_navigation_background"
             android:elevation="@dimen/_10sdp"
-            app:itemIconTint="@drawable/bottom_nav_color_state"
-            app:itemTextColor="@drawable/bottom_nav_color_state"
+            app:itemIconTint="@color/bottom_navigation_text"
+            app:itemTextColor="@color/bottom_navigation_text"
             app:menu="@menu/menu_nav_bottom" />
 
     </RelativeLayout>

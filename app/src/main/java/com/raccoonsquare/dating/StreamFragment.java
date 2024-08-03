@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -41,6 +42,9 @@ import java.util.concurrent.TimeUnit;
 public class StreamFragment extends Fragment implements Constants, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String STATE_LIST = "State Adapter Data";
+
+    private LottieAnimationView lottieLoading;
+    private ImageView ivLoadingEmpty;
 
     Menu MainMenu;
 
@@ -100,7 +104,9 @@ public class StreamFragment extends Fragment implements Constants, SwipeRefreshL
         mItemsContainer.setOnRefreshListener(this);
 
         mMessage = rootView.findViewById(R.id.message);
-        mSplash = rootView.findViewById(R.id.splash);
+//        mSplash = rootView.findViewById(R.id.splash);
+        ivLoadingEmpty = rootView.findViewById(R.id.ivLoadingEmpty);
+        lottieLoading = rootView.findViewById(R.id.lottieLoading);
 
         mRecyclerView = rootView.findViewById(R.id.recycler_view);
 
@@ -161,6 +167,9 @@ public class StreamFragment extends Fragment implements Constants, SwipeRefreshL
         }
 
         if (!restore) {
+
+            lottieLoading.playAnimation();
+            ivLoadingEmpty.setVisibility(View.VISIBLE);
 
             showMessage(getText(R.string.msg_loading_2).toString());
 
@@ -315,6 +324,9 @@ public class StreamFragment extends Fragment implements Constants, SwipeRefreshL
 
             if (StreamFragment.this.isVisible()) {
 
+                lottieLoading.setVisibility(View.GONE);
+                ivLoadingEmpty.setVisibility(View.VISIBLE);
+
                 showMessage(getText(R.string.label_empty_list).toString());
             }
 
@@ -332,14 +344,14 @@ public class StreamFragment extends Fragment implements Constants, SwipeRefreshL
         mMessage.setText(message);
         mMessage.setVisibility(View.VISIBLE);
 
-        mSplash.setVisibility(View.VISIBLE);
+//        mSplash.setVisibility(View.VISIBLE);
     }
 
     public void hideMessage() {
 
         mMessage.setVisibility(View.GONE);
 
-        mSplash.setVisibility(View.GONE);
+//        mSplash.setVisibility(View.GONE);
     }
 
     @Override

@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -47,11 +48,14 @@ public class DialogsFragment extends Fragment implements Constants, SwipeRefresh
 
     private static final String STATE_LIST = "State Adapter Data";
 
+    private LottieAnimationView lottieLoading;
+    private ImageView ivNoMessages;
+
     RecyclerView mRecyclerView;
     NestedScrollView mNestedView;
 
     TextView mMessage;
-    ImageView mSplash;
+//    ImageView mSplash;
 
     SwipeRefreshLayout mItemsContainer;
 
@@ -103,8 +107,12 @@ public class DialogsFragment extends Fragment implements Constants, SwipeRefresh
         mItemsContainer = rootView.findViewById(R.id.container_items);
         mItemsContainer.setOnRefreshListener(this);
 
+        // Added
+        lottieLoading = rootView.findViewById(R.id.lottieLoading);
+        ivNoMessages = rootView.findViewById(R.id.ivNoMessages);
+
         mMessage = rootView.findViewById(R.id.message);
-        mSplash = rootView.findViewById(R.id.splash);
+//        mSplash = rootView.findViewById(R.id.splash);
 
         mNestedView = rootView.findViewById(R.id.nested_view);
 
@@ -189,6 +197,9 @@ public class DialogsFragment extends Fragment implements Constants, SwipeRefresh
 
         if (itemsAdapter.getItemCount() == 0) {
 
+            ivNoMessages.setVisibility(View.VISIBLE);
+            lottieLoading.setVisibility(View.INVISIBLE);
+
             showMessage(getText(R.string.label_empty_list).toString());
 
         } else {
@@ -197,6 +208,9 @@ public class DialogsFragment extends Fragment implements Constants, SwipeRefresh
         }
 
         if (!restore) {
+
+            lottieLoading.playAnimation();
+            ivNoMessages.setVisibility(View.GONE);
 
             showMessage(getText(R.string.msg_loading_2).toString());
 
@@ -238,6 +252,9 @@ public class DialogsFragment extends Fragment implements Constants, SwipeRefresh
             itemsAdapter.notifyDataSetChanged();
 
             if (itemsAdapter.getItemCount() == 0) {
+
+                ivNoMessages.setVisibility(View.VISIBLE);
+                lottieLoading.setVisibility(View.INVISIBLE);
 
                 showMessage(getText(R.string.label_empty_list).toString());
 
@@ -378,7 +395,10 @@ public class DialogsFragment extends Fragment implements Constants, SwipeRefresh
 
         if (itemsAdapter.getItemCount() == 0) {
 
-            showMessage(getText(R.string.label_empty_list).toString());
+            ivNoMessages.setVisibility(View.VISIBLE);
+            lottieLoading.setVisibility(View.INVISIBLE);
+
+            showMessage("No messages");
 
         } else {
 
@@ -394,14 +414,17 @@ public class DialogsFragment extends Fragment implements Constants, SwipeRefresh
         mMessage.setText(message);
         mMessage.setVisibility(View.VISIBLE);
 
-        mSplash.setVisibility(View.VISIBLE);
+//        mSplash.setVisibility(View.VISIBLE);
     }
 
     public void hideMessage() {
 
+        ivNoMessages.setVisibility(View.INVISIBLE);
+        lottieLoading.setVisibility(View.INVISIBLE);
+
         mMessage.setVisibility(View.GONE);
 
-        mSplash.setVisibility(View.GONE);
+//        mSplash.setVisibility(View.GONE);
     }
 
     @Override

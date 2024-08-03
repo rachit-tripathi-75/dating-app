@@ -9,7 +9,7 @@ android {
         targetSdkVersion 34
         versionCode 100
         versionName '6.6'
-        multiDexEnabled true    
+        multiDexEnabled true
 
         vectorDrawables.useSupportLibrary = true
     }
@@ -23,7 +23,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    
+
     buildTypes {
         release {
             minifyEnabled false
@@ -104,6 +104,9 @@ dependencies {
     implementation 'com.intuit.ssp:ssp-android:1.1.1'
     implementation 'com.intuit.sdp:sdp-android:1.1.1'
     implementation 'androidx.activity:activity:1.9.1'
+
+    // lottie
+    implementation 'com.airbnb.android:lottie:6.4.0'
 
 
     //implementation 'com.github.AbedElazizShe:LightCompressor:1.2.3'

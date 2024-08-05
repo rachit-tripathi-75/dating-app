@@ -64,7 +64,7 @@ public class MenuFragment extends Fragment implements Constants {
         mNavGuests = rootView.findViewById(R.id.nav_guests);
         mNavLikes = rootView.findViewById(R.id.nav_likes);
         mNavLiked = rootView.findViewById(R.id.nav_liked);
-        mNavUpgrades = rootView.findViewById(R.id.nav_upgrades);
+//        mNavUpgrades = rootView.findViewById(R.id.nav_upgrades);
         mNavSettings = rootView.findViewById(R.id.nav_settings);
 
         // Counters
@@ -164,15 +164,15 @@ public class MenuFragment extends Fragment implements Constants {
             }
         });
 
-        mNavUpgrades.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(getActivity(), UpgradesActivity.class);
-                startActivity(i);
-            }
-        });
+//        mNavUpgrades.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent i = new Intent(getActivity(), UpgradesActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         mNavSettings.setOnClickListener(new View.OnClickListener() {
 

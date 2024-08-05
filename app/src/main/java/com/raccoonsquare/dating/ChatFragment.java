@@ -249,7 +249,7 @@ public class ChatFragment extends Fragment implements Constants {
 
                 Log.e("Permissions", "denied");
 
-                Snackbar.make(getView(), getString(R.string.label_no_camera_permission) , Snackbar.LENGTH_LONG).setAction(getString(R.string.action_settings), new View.OnClickListener() {
+                Snackbar.make(getView(), getString(R.string.label_no_camera_permission), Snackbar.LENGTH_LONG).setAction(getString(R.string.action_settings), new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
@@ -341,7 +341,7 @@ public class ChatFragment extends Fragment implements Constants {
 
                 Log.e("Permissions", "denied");
 
-                Snackbar.make(getView(), getString(R.string.label_no_storage_permission) , Snackbar.LENGTH_LONG).setAction(getString(R.string.action_settings), new View.OnClickListener() {
+                Snackbar.make(getView(), getString(R.string.label_no_storage_permission), Snackbar.LENGTH_LONG).setAction(getString(R.string.action_settings), new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
@@ -403,7 +403,7 @@ public class ChatFragment extends Fragment implements Constants {
             @Override
             public void onKeyboardClose() {
 
-                if(popup.isShowing())
+                if (popup.isShowing())
 
                     popup.dismiss();
             }
@@ -429,8 +429,6 @@ public class ChatFragment extends Fragment implements Constants {
                 mMessageText.dispatchKeyEvent(event);
             }
         });
-
-
 
 
         if (savedInstanceState != null) {
@@ -552,7 +550,6 @@ public class ChatFragment extends Fragment implements Constants {
                 c.setTimeAgo(msgTimeAgo);
 
                 Log.e(LOG_TAG, "onReceive: task = " + task + ", status = " + status + " " + c.getMessage() + " " + c.getId());
-
 
 
                 final ChatItem lastItem = (ChatItem) listView.getAdapter().getItem(listView.getAdapter().getCount() - 1);
@@ -684,7 +681,7 @@ public class ChatFragment extends Fragment implements Constants {
         mContainerImg = rootView.findViewById(R.id.container_img);
         mContainerImg.setVisibility(View.GONE);
 
-        mDeleteImg.setOnClickListener(new View.OnClickListener(){
+        mDeleteImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -729,7 +726,7 @@ public class ChatFragment extends Fragment implements Constants {
                 if (!popup.isShowing()) {
 
                     //If keyboard is visible, simply show the emoji popup
-                    if (popup.isKeyBoardOpen()){
+                    if (popup.isKeyBoardOpen()) {
 
                         popup.showAtBottom();
                         setIconSoftKeyboard();
@@ -1468,7 +1465,7 @@ public class ChatFragment extends Fragment implements Constants {
 
                 } else {
 
-                    Toast toast= Toast.makeText(getActivity(), getText(R.string.msg_enter_msg), Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getActivity(), getText(R.string.msg_enter_msg), Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }
@@ -1476,7 +1473,7 @@ public class ChatFragment extends Fragment implements Constants {
 
         } else {
 
-            Toast toast= Toast.makeText(getActivity(), getText(R.string.msg_network_error), Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getActivity(), getText(R.string.msg_network_error), Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         }
@@ -1532,7 +1529,7 @@ public class ChatFragment extends Fragment implements Constants {
                                     // Hide keyboard
 
                                     InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                                    inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+                                    inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
                                     // Show promo dialog
 
@@ -1799,7 +1796,7 @@ public class ChatFragment extends Fragment implements Constants {
 
     private void showMenuItems(Menu menu, boolean visible) {
 
-        for (int i = 0; i < menu.size(); i++){
+        for (int i = 0; i < menu.size(); i++) {
 
             menu.getItem(i).setVisible(visible);
         }
@@ -1924,7 +1921,7 @@ public class ChatFragment extends Fragment implements Constants {
                             }
                         }
 
-                        Log.e("uploadProgress called", progress+" ");
+                        Log.e("uploadProgress called", progress + " ");
                     }
                 }
             }
@@ -2444,7 +2441,7 @@ public class ChatFragment extends Fragment implements Constants {
     }
 
     // Prevent dialog dismiss when orientation changes
-    private static void doKeepDialog(Dialog dialog){
+    private static void doKeepDialog(Dialog dialog) {
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());

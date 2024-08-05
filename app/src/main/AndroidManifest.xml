@@ -38,7 +38,9 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".RegisterUser"
+            android:exported="false" />
 
         <uses-library
             android:name="org.apache.http.legacy"

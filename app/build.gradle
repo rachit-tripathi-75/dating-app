@@ -107,6 +107,10 @@ dependencies {
 
     // lottie
     implementation 'com.airbnb.android:lottie:6.4.0'
+    implementation 'com.google.firebase:firebase-database:21.0.0'
+
+    //firebase added
+
 
 
     //implementation 'com.github.AbedElazizShe:LightCompressor:1.2.3'

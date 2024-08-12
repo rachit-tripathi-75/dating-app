@@ -1,7 +1,6 @@
 package com.raccoonsquare.dating;
 
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.view.MenuItem;
 
 import androidx.appcompat.widget.Toolbar;

@@ -23,7 +23,7 @@ import android.view.KeyEvent;
 
 import androidx.appcompat.widget.AppCompatEditText;
 
-import com.raccoonsquare.dating.R;
+import com.deificdigital.chaska.R;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com).

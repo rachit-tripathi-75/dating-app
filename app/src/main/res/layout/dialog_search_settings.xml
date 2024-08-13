@@ -193,7 +193,7 @@
 
             </LinearLayout>
 
-            <com.raccoonsquare.dating.view.RangeSeekBar
+            <com.deificdigital.chaska.view.RangeSeekBar
                 android:id="@+id/age_seekbar"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

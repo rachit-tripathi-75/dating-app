@@ -23,7 +23,7 @@ import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.raccoonsquare.dating.R;
+import com.deificdigital.chaska.R;
 
 import java.util.Arrays;
 

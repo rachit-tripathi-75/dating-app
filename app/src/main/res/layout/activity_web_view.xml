@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.raccoonsquare.dating.WebViewActivity">
+    tools:context="com.deificdigital.chaska.WebViewActivity">
 
     <LinearLayout
         android:id="@+id/container_toolbar"

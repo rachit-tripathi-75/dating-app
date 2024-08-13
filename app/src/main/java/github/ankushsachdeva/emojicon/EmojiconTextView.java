@@ -23,7 +23,7 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.raccoonsquare.dating.R;
+import com.deificdigital.chaska.R;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com).

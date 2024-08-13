@@ -20,7 +20,7 @@ import android.content.Context;
 import android.widget.GridView;
 
 import github.ankushsachdeva.emojicon.emoji.Emojicon;
-import com.raccoonsquare.dating.R;
+import com.deificdigital.chaska.R;
 
 /**
  * @author Daniele Ricci

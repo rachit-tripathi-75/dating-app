@@ -39,7 +39,7 @@
         android:theme="@style/MyMaterialTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.raccoonsquare.dating.RegisterUser"
+            android:name="com.deificdigital.chaska.RegisterUser"
             android:exported="false" />
 
         <uses-library
@@ -89,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.raccoonsquare.dating.AppActivity"
+            android:name="com.deificdigital.chaska.AppActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="true"
             android:label="@string/app_name"
@@ -116,183 +116,183 @@
             android:value="@string/default_notification_channel_id" />
 
         <service
-            android:name="com.raccoonsquare.dating.service.MyFcmListenerService"
+            android:name="com.deificdigital.chaska.service.MyFcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="com.raccoonsquare.dating.service.fileUploadService" />
+        <service android:name="com.deificdigital.chaska.service.fileUploadService" />
 
         <activity
-            android:name="com.raccoonsquare.dating.LoginActivity"
+            android:name="com.deificdigital.chaska.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.raccoonsquare.dating.SignupActivity"
+            android:name="com.deificdigital.chaska.SignupActivity"
             android:label="@string/title_activity_signup"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.raccoonsquare.dating.MainActivity"
+            android:name="com.deificdigital.chaska.MainActivity"
             android:label="@string/title_activity_feeds" />
         <activity
-            android:name="com.raccoonsquare.dating.RecoveryActivity"
+            android:name="com.deificdigital.chaska.RecoveryActivity"
             android:label="@string/title_activity_recovery"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.raccoonsquare.dating.SettingsActivity"
+            android:name="com.deificdigital.chaska.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name="com.raccoonsquare.dating.WebViewActivity"
+            android:name="com.deificdigital.chaska.WebViewActivity"
             android:label="@string/title_activity_web_view" />
         <activity
-            android:name="com.raccoonsquare.dating.ChangePasswordActivity"
+            android:name="com.deificdigital.chaska.ChangePasswordActivity"
             android:label="@string/title_activity_change_password"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.raccoonsquare.dating.ServicesActivity"
+            android:name="com.deificdigital.chaska.ServicesActivity"
             android:label="@string/title_activity_services" />
         <activity
-            android:name="com.raccoonsquare.dating.ProfileActivity"
+            android:name="com.deificdigital.chaska.ProfileActivity"
             android:label="@string/title_activity_profile" />
         <activity
-            android:name="com.raccoonsquare.dating.NotificationsActivity"
+            android:name="com.deificdigital.chaska.NotificationsActivity"
             android:label="@string/title_activity_notifications" />
         <activity
-            android:name="com.raccoonsquare.dating.PhotoViewActivity"
+            android:name="com.deificdigital.chaska.PhotoViewActivity"
             android:label="@string/title_activity_photo_view"
             android:theme="@style/PhotoViewTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.LikesActivity"
+            android:name="com.deificdigital.chaska.LikesActivity"
             android:label="@string/title_activity_likes" />
         <activity
-            android:name="com.raccoonsquare.dating.AccountSettingsActivity"
+            android:name="com.deificdigital.chaska.AccountSettingsActivity"
             android:label="@string/title_activity_account_settings"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.raccoonsquare.dating.BlackListActivity"
+            android:name="com.deificdigital.chaska.BlackListActivity"
             android:label="@string/title_activity_black_list" />
         <activity
-            android:name="com.raccoonsquare.dating.DialogsActivity"
+            android:name="com.deificdigital.chaska.DialogsActivity"
             android:label="@string/title_activity_dialogs" />
         <activity
-            android:name="com.raccoonsquare.dating.ChatActivity"
+            android:name="com.deificdigital.chaska.ChatActivity"
             android:label="@string/title_activity_chat"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.raccoonsquare.dating.NotificationsSettingsActivity"
+            android:name="com.deificdigital.chaska.NotificationsSettingsActivity"
             android:label="@string/title_activity_notifications_settings" />
         <activity
-            android:name="com.raccoonsquare.dating.PrivacySettingsActivity"
+            android:name="com.deificdigital.chaska.PrivacySettingsActivity"
             android:label="@string/title_activity_privacy_settings" />
         <activity
-            android:name="com.raccoonsquare.dating.SupportActivity"
+            android:name="com.deificdigital.chaska.SupportActivity"
             android:label="@string/title_activity_support"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.LocationActivity"
+            android:name="com.deificdigital.chaska.LocationActivity"
             android:label="@string/title_activity_location"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.DeactivateActivity"
+            android:name="com.deificdigital.chaska.DeactivateActivity"
             android:label="@string/title_activity_deactivate"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.AddPhotoActivity"
+            android:name="com.deificdigital.chaska.AddPhotoActivity"
             android:label="@string/title_activity_new_item"
             android:theme="@style/MyMaterialTheme"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.raccoonsquare.dating.GalleryActivity"
+            android:name="com.deificdigital.chaska.GalleryActivity"
             android:label="@string/title_activity_gallery"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.SelectGiftActivity"
+            android:name="com.deificdigital.chaska.SelectGiftActivity"
             android:label="@string/title_activity_select_gift"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.SendGiftActivity"
+            android:name="com.deificdigital.chaska.SendGiftActivity"
             android:label="@string/title_activity_send_gift"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.GiftsActivity"
+            android:name="com.deificdigital.chaska.GiftsActivity"
             android:label="@string/title_activity_gifts"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.FriendsActivity"
+            android:name="com.deificdigital.chaska.FriendsActivity"
             android:label="@string/title_activity_friends"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.MatchesActivity"
+            android:name="com.deificdigital.chaska.MatchesActivity"
             android:label="@string/title_activity_matches"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.BalanceActivity"
+            android:name="com.deificdigital.chaska.BalanceActivity"
             android:label="@string/title_activity_balance"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.ViewImageActivity"
+            android:name="com.deificdigital.chaska.ViewImageActivity"
             android:label="@string/title_activity_view_gallery_item"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.LikersActivity"
+            android:name="com.deificdigital.chaska.LikersActivity"
             android:label="@string/title_activity_likers" />
         <activity
-            android:name="com.raccoonsquare.dating.VideoViewActivity"
+            android:name="com.deificdigital.chaska.VideoViewActivity"
             android:configChanges="orientation|screenSize|layoutDirection"
             android:label="@string/title_activity_video_view"
             android:theme="@style/PhotoViewTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.WelcomeActivity"
+            android:name="com.deificdigital.chaska.WelcomeActivity"
             android:label="@string/title_activity_welcome" />
         <activity
-            android:name="com.raccoonsquare.dating.ReferralsActivity"
+            android:name="com.deificdigital.chaska.ReferralsActivity"
             android:label="@string/title_activity_referrals"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.SelectFeelingActivity"
+            android:name="com.deificdigital.chaska.SelectFeelingActivity"
             android:label="@string/title_activity_feelings"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.UpgradesActivity"
+            android:name="com.deificdigital.chaska.UpgradesActivity"
             android:label="@string/title_activity_upgrades"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.GuestsActivity"
+            android:name="com.deificdigital.chaska.GuestsActivity"
             android:label="@string/title_activity_guests"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.LikedActivity"
+            android:name="com.deificdigital.chaska.LikedActivity"
             android:label="@string/title_activity_liked"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.RegisterActivity"
+            android:name="com.deificdigital.chaska.RegisterActivity"
             android:label="@string/title_activity_signup" />
         <activity
-            android:name="com.raccoonsquare.dating.BalanceHistoryActivity"
+            android:name="com.deificdigital.chaska.BalanceHistoryActivity"
             android:label="@string/title_activity_balance_history" />
         <activity
-            android:name="com.raccoonsquare.dating.SpotlightActivity"
+            android:name="com.deificdigital.chaska.SpotlightActivity"
             android:label="@string/title_activity_spotlight" />
         <activity
-            android:name="com.raccoonsquare.dating.OtpVerificationActivity"
+            android:name="com.deificdigital.chaska.OtpVerificationActivity"
             android:label="@string/title_activity_otp_verification" />
         <activity
-            android:name="com.raccoonsquare.dating.SearchActivity"
+            android:name="com.deificdigital.chaska.SearchActivity"
             android:label="@string/title_activity_search"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.StreamActivity"
+            android:name="com.deificdigital.chaska.StreamActivity"
             android:label="@string/title_activity_stream"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.raccoonsquare.dating.CaptureActivity"
+            android:name="com.deificdigital.chaska.CaptureActivity"
             android:label="@string/title_activity_capture"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme.Capture" />
         <activity
-            android:name="com.raccoonsquare.dating.CapturePreviewActivity"
+            android:name="com.deificdigital.chaska.CapturePreviewActivity"
             android:label="@string/title_activity_preview_capture"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme" />

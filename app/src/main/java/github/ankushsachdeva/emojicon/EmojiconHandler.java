@@ -19,7 +19,7 @@ import android.content.Context;
 import android.text.Spannable;
 import android.util.SparseIntArray;
 
-import com.raccoonsquare.dating.R;
+import com.deificdigital.chaska.R;
 
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)

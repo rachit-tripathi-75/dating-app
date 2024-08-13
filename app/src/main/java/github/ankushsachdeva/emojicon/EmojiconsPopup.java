@@ -37,7 +37,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.raccoonsquare.dating.R;
+import com.deificdigital.chaska.R;
 
 import java.util.Arrays;
 import java.util.List;

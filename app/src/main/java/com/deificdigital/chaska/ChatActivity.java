@@ -59,7 +59,7 @@ public class ChatActivity extends ActivityBase {
 
         outState.putBoolean("restore", true);
         getSupportFragmentManager().putFragment(outState, "currentFragment", fragment);
-    }
+    };
 
     @Override
     protected void onResume() {
@@ -137,6 +137,7 @@ public class ChatActivity extends ActivityBase {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
 
         ChatFragment p = (ChatFragment) fragment;
         p.updateChat();

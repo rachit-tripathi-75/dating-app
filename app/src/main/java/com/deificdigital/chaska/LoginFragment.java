@@ -127,7 +127,7 @@ public class LoginFragment extends Fragment implements Constants {
 
                                                 App.getInstance().updateGeoLocation();
 
-                                                Intent intent = new Intent(getActivity(), RegisterUser.class);
+                                                Intent intent = new Intent(getActivity(), MainActivity.class);
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                 startActivity(intent);
 
@@ -142,7 +142,7 @@ public class LoginFragment extends Fragment implements Constants {
 
                                                     App.getInstance().updateGeoLocation();
 
-                                                    Intent intent = new Intent(getActivity(), RegisterUser.class);
+                                                    Intent intent = new Intent(getActivity(), MainActivity.class);
                                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                     startActivity(intent);
                                                 }
@@ -152,7 +152,7 @@ public class LoginFragment extends Fragment implements Constants {
 
                                             if (oauth_id.length() != 0) {
 
-                                                Intent i = new Intent(getActivity(), RegisterUser.class);
+                                                Intent i = new Intent(getActivity(), MainActivity.class);
                                                 i.putExtra("oauth_id", oauth_id);
                                                 i.putExtra("oauth_name", oauth_name);
                                                 i.putExtra("oauth_email", oauth_email);
@@ -455,7 +455,7 @@ public class LoginFragment extends Fragment implements Constants {
 
                                 App.getInstance().updateGeoLocation();
 
-                                Intent intent = new Intent(getActivity(), RegisterUser.class);
+                                Intent intent = new Intent(getActivity(), MainActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
 
@@ -477,7 +477,7 @@ public class LoginFragment extends Fragment implements Constants {
 
                             if (oauth_id != "") {
 
-                                Intent i = new Intent(getActivity(), RegisterUser.class);
+                                Intent i = new Intent(getActivity(), MainActivity.class);
                                 i.putExtra("oauth_id", oauth_id);
                                 i.putExtra("oauth_name", oauth_name);
                                 i.putExtra("oauth_email", oauth_email);
@@ -538,7 +538,7 @@ public class LoginFragment extends Fragment implements Constants {
 
                                 App.getInstance().updateGeoLocation();
 
-                                Intent intent = new Intent(getActivity(), RegisterUser.class);
+                                Intent intent = new Intent(getActivity(), MainActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
 

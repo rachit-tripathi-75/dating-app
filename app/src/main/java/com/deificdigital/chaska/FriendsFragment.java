@@ -17,7 +17,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -30,9 +32,13 @@ import com.android.volley.VolleyError;
 import com.deificdigital.chaska.adapter.AdvancedPeopleListAdapter;
 import com.deificdigital.chaska.app.App;
 import com.deificdigital.chaska.constants.Constants;
+import com.deificdigital.chaska.constants.Values;
 import com.deificdigital.chaska.model.Friend;
 import com.deificdigital.chaska.model.Profile;
 import com.deificdigital.chaska.util.CustomRequest;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,6 +53,7 @@ public class FriendsFragment extends Fragment implements Constants, SwipeRefresh
     private static final String STATE_LIST = "State Adapter Data";
 
     RecyclerView mRecyclerView;
+
     TextView mMessage;
     ImageView mSplash;
 
@@ -137,7 +144,7 @@ public class FriendsFragment extends Fragment implements Constants, SwipeRefresh
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 
-                if(dy > 0) { //check for scroll down
+                if (dy > 0) { //check for scroll down
 
                     visibleItemCount = finalMLayoutManager.getChildCount();
                     totalItemCount = finalMLayoutManager.getItemCount();
@@ -260,6 +267,7 @@ public class FriendsFragment extends Fragment implements Constants, SwipeRefresh
                                     arrayLength = usersArray.length();
 
                                     if (arrayLength > 0) {
+                                        ArrayList<String> friendsList = new ArrayList<>();
 
                                         for (int i = 0; i < usersArray.length(); i++) {
 
@@ -268,6 +276,7 @@ public class FriendsFragment extends Fragment implements Constants, SwipeRefresh
                                             Friend friend = new Friend(userObj);
 
                                             Profile profile = new Profile();
+
 
                                             profile.setId(friend.getFriendUserId());
                                             profile.setFullname(friend.getFriendUserFullname());
@@ -280,8 +289,28 @@ public class FriendsFragment extends Fragment implements Constants, SwipeRefresh
                                             profile.setDistance(0.000000);
                                             profile.setPhotoModerateAt(friend.getPhotoModerateAt());
 
+
                                             itemsList.add(profile);
+
+                                            friendsList.add("@"+friend.getFriendUserUsername());
                                         }
+                                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                        Intent intent = getActivity().getIntent();
+                                        String currentUsername = intent.getStringExtra("currentUsername");
+
+                                        Map<String, Object> friendsMap = new HashMap<>();
+                                        friendsMap.put("friends", friendsList);
+                                        database.getReferenceFromUrl("https://daiting-app-52950-default-rtdb.firebaseio.com/").child("users").child(currentUsername).updateChildren(friendsMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()) {
+                                                    Toast.makeText(getContext(), "friends added to firebase", Toast.LENGTH_SHORT).show();
+                                                }
+                                                else {
+                                                    Toast.makeText(getContext(), "an error occurred", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
                                     }
                                 }
 

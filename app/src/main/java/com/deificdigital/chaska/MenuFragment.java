@@ -24,6 +24,7 @@ import com.deificdigital.chaska.constants.Constants;
 public class MenuFragment extends Fragment implements Constants {
 
     ImageLoader imageLoader;
+    String currentUsername;
 
     CircularImageView mProfilePhoto, mProfileIcon;
     ImageView mFriendsIcon, mMatchesIcon, mGuestsIcon;
@@ -117,6 +118,7 @@ public class MenuFragment extends Fragment implements Constants {
 
                 Intent i = new Intent(getActivity(), FriendsActivity.class);
                 i.putExtra("profileId", App.getInstance().getId());
+                i.putExtra("currentUsername", currentUsername);
                 startActivity(i);
             }
         });
@@ -239,6 +241,7 @@ public class MenuFragment extends Fragment implements Constants {
 
         mNavProfileFullname.setText(App.getInstance().getFullname());
         mNavProfileSubhead.setText("@" + App.getInstance().getUsername());
+        currentUsername = mNavProfileSubhead.getText().toString();
     }
 
     @Override

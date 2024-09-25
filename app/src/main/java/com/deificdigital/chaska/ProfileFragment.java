@@ -129,6 +129,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
     private static final String STATE_GIFTS_SPOTLIGHT_LIST = "State Adapter Data 4";
 
     private ProgressDialog pDialog;
+    String extractedUsername, extractedName;
 
     private static final String TAG = ProfileFragment.class.getSimpleName();
 
@@ -380,7 +381,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
 
                 Log.e("Permissions", "denied");
 
-                Snackbar.make(getView(), getString(R.string.label_no_storage_permission) , Snackbar.LENGTH_LONG).setAction(getString(R.string.action_settings), new View.OnClickListener() {
+                Snackbar.make(getView(), getString(R.string.label_no_storage_permission), Snackbar.LENGTH_LONG).setAction(getString(R.string.action_settings), new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
@@ -413,7 +414,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
 
                 Log.e("Permissions", "denied");
 
-                Snackbar.make(getView(), getString(R.string.label_no_camera_permission) , Snackbar.LENGTH_LONG).setAction(getString(R.string.action_settings), new View.OnClickListener() {
+                Snackbar.make(getView(), getString(R.string.label_no_camera_permission), Snackbar.LENGTH_LONG).setAction(getString(R.string.action_settings), new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
@@ -495,7 +496,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
         mProfileFacebookUrl = rootView.findViewById(R.id.profileFacebookUrl);
         mProfileSiteUrl = rootView.findViewById(R.id.profileSiteUrl);
 
-        ((ProfileActivity)getActivity()).mFabButton.hide();
+        ((ProfileActivity) getActivity()).mFabButton.hide();
 
         // Start prepare Friends Spotlight
 
@@ -671,7 +672,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
             @Override
             public void onClick(View v) {
 
-                if (!profile.getFacebookPage().startsWith("https://") && !profile.getFacebookPage().startsWith("http://")){
+                if (!profile.getFacebookPage().startsWith("https://") && !profile.getFacebookPage().startsWith("http://")) {
 
                     profile.setFacebookPage("http://" + profile.getFacebookPage());
                 }
@@ -686,7 +687,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
             @Override
             public void onClick(View v) {
 
-                if (!profile.getInstagramPage().startsWith("https://") && !profile.getInstagramPage().startsWith("http://")){
+                if (!profile.getInstagramPage().startsWith("https://") && !profile.getInstagramPage().startsWith("http://")) {
 
                     profile.setInstagramPage("http://" + profile.getInstagramPage());
                 }
@@ -743,7 +744,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
             }
         });
 
-        ((ProfileActivity)getActivity()).mFabButton.setOnClickListener(new View.OnClickListener() {
+        ((ProfileActivity) getActivity()).mFabButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -794,6 +795,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
                             i.putExtra("with_user_verified", profile.getVerify());
 
                             startActivityForResult(i, PROFILE_CHAT);
+
 
                         } else {
 
@@ -897,7 +899,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
         outState.putParcelableArrayList(STATE_GIFTS_SPOTLIGHT_LIST, giftsSpotlightList);
     }
 
-    private Bitmap resize(String path){
+    private Bitmap resize(String path) {
 
         int maxWidth = 512;
         int maxHeight = 512;
@@ -1134,6 +1136,9 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
         updateFeeling();
 
         mProfileUsername.setText("@" + profile.getUsername());
+
+        Log.d("profilefragmenttag", "User: " + extractedName);
+
         mProfileLocation.setText(profile.getLocation());
 
         mProfileItemsCount.setText(Integer.toString(profile.getPhotosCount()));
@@ -1144,8 +1149,8 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
         // Show settings button is your profile
         if (profile.getId() == App.getInstance().getId()) {
 
-            ((ProfileActivity)getActivity()).mFabButton.show();
-            ((ProfileActivity)getActivity()).mFabButton.setImageResource(R.drawable.ic_action_new);
+            ((ProfileActivity) getActivity()).mFabButton.show();
+            ((ProfileActivity) getActivity()).mFabButton.setImageResource(R.drawable.ic_action_new);
 
             mProfileActionBtn.setText(R.string.action_profile_edit);
 
@@ -1155,13 +1160,13 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
 
         } else {
 
-            ((ProfileActivity)getActivity()).mFabButton.hide();
+            ((ProfileActivity) getActivity()).mFabButton.hide();
 
             if (!profile.isMyLike()) {
 
-                ((ProfileActivity)getActivity()).mFabButton.setImageResource(R.drawable.ic_action_like);
+                ((ProfileActivity) getActivity()).mFabButton.setImageResource(R.drawable.ic_action_like);
 
-                ((ProfileActivity)getActivity()).mFabButton.show();
+                ((ProfileActivity) getActivity()).mFabButton.show();
             }
 
             mProfileMessageBtn.setText(R.string.action_message);
@@ -1571,7 +1576,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
                                 App.getInstance().saveData();
                             }
 
-                            Log.e("Profile Success",  response.toString());
+                            Log.e("Profile Success", response.toString());
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -1585,7 +1590,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
                     return;
                 }
 
-                Log.e("Profile Error",  error.toString() + error.getMessage() + error.getLocalizedMessage());
+                Log.e("Profile Error", error.toString() + error.getMessage() + error.getLocalizedMessage());
                 showErrorScreen();
             }
         }) {
@@ -1992,7 +1997,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
 
             mProfileRefreshLayout.setRefreshing(true);
 
-        } else{
+        } else {
 
             itemId = 0;
         }
@@ -2331,7 +2336,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
                 public void onAdFailedToLoad(LoadAdError loadAdError) {
 
                     String error = String.format("domain: %s, code: %d, message: %s", loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
-                    Log.e("admob","Failed to load native ad with error " + error);
+                    Log.e("admob", "Failed to load native ad with error " + error);
                     Log.e("admob", App.getInstance().getAdmobSettings().getBannerNativeAdUnitId());
 
                     mAdView.setVisibility(View.GONE);
@@ -2359,7 +2364,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
                 @Override
                 public void onAdLoaded() {
 
-                    Log.e("admob","Ad loaded");
+                    Log.e("admob", "Ad loaded");
 
                     mAdView.setVisibility(View.VISIBLE);
                     mAdProgressBar.setVisibility(View.GONE);
@@ -2558,7 +2563,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
 
     private void hideMenuItems(Menu menu, boolean visible) {
 
-        for (int i = 0; i < menu.size(); i++){
+        for (int i = 0; i < menu.size(); i++) {
 
             menu.getItem(i).setVisible(visible);
         }
@@ -2600,7 +2605,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
         ProfileReportDialog alert = new ProfileReportDialog();
 
         /** Creating a bundle object to store the selected item's index */
-        Bundle b  = new Bundle();
+        Bundle b = new Bundle();
 
         /** Storing the selected item's index in the bundle object */
         b.putInt("position", 0);
@@ -2613,7 +2618,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
         alert.show(fm, "alert_dialog_profile_report");
     }
 
-    public  void onProfileReport(final int position) {
+    public void onProfileReport(final int position) {
 
         Api api = new Api(getActivity());
 
@@ -2631,7 +2636,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
             ProfileBlockDialog alert = new ProfileBlockDialog();
 
             /** Creating a bundle object to store the selected item's index */
-            Bundle b  = new Bundle();
+            Bundle b = new Bundle();
 
             /** Storing the selected item's index in the bundle object */
             b.putString("blockUsername", profile.getUsername());
@@ -2713,7 +2718,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
         }
     }
 
-    public  void onProfileBlock() {
+    public void onProfileBlock() {
 
         loading = true;
 
@@ -2837,7 +2842,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
                             }
                         }
 
-                        Log.e("uploadProgress called", progress+" ");
+                        Log.e("uploadProgress called", progress + " ");
                     }
                 }
             }
@@ -3353,7 +3358,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
 
                             hidepDialog();
 
-                            ((ProfileActivity)getActivity()).mFabButton.hide();
+                            ((ProfileActivity) getActivity()).mFabButton.hide();
 
                             // Interstitial ad
 
@@ -3593,7 +3598,7 @@ public class ProfileFragment extends Fragment implements Constants, SwipeRefresh
     }
 
     // Prevent dialog dismiss when orientation changes
-    private static void doKeepDialog(Dialog dialog){
+    private static void doKeepDialog(Dialog dialog) {
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());

@@ -58,6 +58,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.deificdigital.chaska.chatconfig.User;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -76,8 +77,14 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.deificdigital.chaska.app.App;
 import com.deificdigital.chaska.common.ActivityBase;
@@ -125,6 +132,9 @@ public class RegisterActivity extends ActivityBase {
     private ActivityResultLauncher<String[]> multiplePermissionLauncher;
 
     private Uri selectedImage;
+    FirebaseAuth auth;
+    FirebaseDatabase database;
+    FirebaseStorage storage;
 
     private String selectedImagePath = "", newImageFileName = "";
 
@@ -1549,7 +1559,7 @@ public class RegisterActivity extends ActivityBase {
 
                             } catch (Exception e) {
 
-                                Toast.makeText(RegisterActivity.this, "Error occured. Please try again later.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Error occurred. Please try again later.", Toast.LENGTH_SHORT).show();
                             }
 
                         } else {
@@ -1706,6 +1716,51 @@ public class RegisterActivity extends ActivityBase {
     private void signup() {
 
         register();
+//        registerToFirebase();
+    }
+
+    private void registerToFirebase() {
+
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
+
+
+        // int age, int gender (0- male, 1- female, 3- secret), int sex_orientation
+        // private String username, password, email, language, fullname, photo_url, referrer, oauth_id, selectedImagePath
+
+        StorageReference storageReference = storage.getReferenceFromUrl("gs://daiting-app-52950.appspot.com").child("Profiles").child(username);
+        storageReference.putFile(selectedImage).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                if(task.isSuccessful()) {
+                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            String username2 = "@"+username;
+                            User user = new User(username2, fullname, email, selectedImagePath, password);
+                            database.getReferenceFromUrl("https://daiting-app-52950-default-rtdb.firebaseio.com/").child("users").child(username2).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(RegisterActivity.this, "Data added to firebase", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                        }
+                    });
+                }
+            }
+        });
+
+//        User user = new User(username, fullname, email, selectedImagePath);
+//
+//        database.getReferenceFromUrl("https://daiting-app-52950-default-rtdb.firebaseio.com/").child("users").setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void unused) {
+//                Toast.makeText(RegisterActivity.this, "Inserted to firebase!", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+
     }
 
     private void go() {
@@ -2107,6 +2162,10 @@ public class RegisterActivity extends ActivityBase {
         jsonReq.setRetryPolicy(policy);
 
         App.getInstance().addToRequestQueue(jsonReq);
+
+        Toast.makeText(this, "Signeddddd!!!", Toast.LENGTH_SHORT).show();
+
+        registerToFirebase();
     }
 
     private void requestStoragePermission() {

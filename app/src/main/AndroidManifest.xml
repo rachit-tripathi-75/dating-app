@@ -31,15 +31,24 @@
     <application
         android:name=".app.App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/chaskaapplogo"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme"
         android:usesCleartextTraffic="true">
+<!--        <activity-->
+<!--            android:name=".OTPActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".VerificationActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ChatListActivity"-->
+<!--            android:exported="false" />-->
         <activity
-            android:name="com.deificdigital.chaska.RegisterUser"
+            android:name=".RegisterUser"
             android:exported="false" />
 
         <uses-library
@@ -89,7 +98,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.deificdigital.chaska.AppActivity"
+            android:name=".AppActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="true"
             android:label="@string/app_name"
@@ -116,183 +125,183 @@
             android:value="@string/default_notification_channel_id" />
 
         <service
-            android:name="com.deificdigital.chaska.service.MyFcmListenerService"
+            android:name=".service.MyFcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="com.deificdigital.chaska.service.fileUploadService" />
+        <service android:name=".service.fileUploadService" />
 
         <activity
-            android:name="com.deificdigital.chaska.LoginActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.deificdigital.chaska.SignupActivity"
+            android:name=".SignupActivity"
             android:label="@string/title_activity_signup"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.deificdigital.chaska.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_feeds" />
         <activity
-            android:name="com.deificdigital.chaska.RecoveryActivity"
+            android:name=".RecoveryActivity"
             android:label="@string/title_activity_recovery"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.deificdigital.chaska.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name="com.deificdigital.chaska.WebViewActivity"
+            android:name=".WebViewActivity"
             android:label="@string/title_activity_web_view" />
         <activity
-            android:name="com.deificdigital.chaska.ChangePasswordActivity"
+            android:name=".ChangePasswordActivity"
             android:label="@string/title_activity_change_password"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.deificdigital.chaska.ServicesActivity"
+            android:name=".ServicesActivity"
             android:label="@string/title_activity_services" />
         <activity
-            android:name="com.deificdigital.chaska.ProfileActivity"
+            android:name=".ProfileActivity"
             android:label="@string/title_activity_profile" />
         <activity
-            android:name="com.deificdigital.chaska.NotificationsActivity"
+            android:name=".NotificationsActivity"
             android:label="@string/title_activity_notifications" />
         <activity
-            android:name="com.deificdigital.chaska.PhotoViewActivity"
+            android:name=".PhotoViewActivity"
             android:label="@string/title_activity_photo_view"
             android:theme="@style/PhotoViewTheme" />
         <activity
-            android:name="com.deificdigital.chaska.LikesActivity"
+            android:name=".LikesActivity"
             android:label="@string/title_activity_likes" />
         <activity
-            android:name="com.deificdigital.chaska.AccountSettingsActivity"
+            android:name=".AccountSettingsActivity"
             android:label="@string/title_activity_account_settings"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.deificdigital.chaska.BlackListActivity"
+            android:name=".BlackListActivity"
             android:label="@string/title_activity_black_list" />
         <activity
-            android:name="com.deificdigital.chaska.DialogsActivity"
+            android:name=".DialogsActivity"
             android:label="@string/title_activity_dialogs" />
         <activity
-            android:name="com.deificdigital.chaska.ChatActivity"
+            android:name=".ChatActivity"
             android:label="@string/title_activity_chat"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.deificdigital.chaska.NotificationsSettingsActivity"
+            android:name=".NotificationsSettingsActivity"
             android:label="@string/title_activity_notifications_settings" />
         <activity
-            android:name="com.deificdigital.chaska.PrivacySettingsActivity"
+            android:name=".PrivacySettingsActivity"
             android:label="@string/title_activity_privacy_settings" />
         <activity
-            android:name="com.deificdigital.chaska.SupportActivity"
+            android:name=".SupportActivity"
             android:label="@string/title_activity_support"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.LocationActivity"
+            android:name=".LocationActivity"
             android:label="@string/title_activity_location"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.DeactivateActivity"
+            android:name=".DeactivateActivity"
             android:label="@string/title_activity_deactivate"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.AddPhotoActivity"
+            android:name=".AddPhotoActivity"
             android:label="@string/title_activity_new_item"
             android:theme="@style/MyMaterialTheme"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.deificdigital.chaska.GalleryActivity"
+            android:name=".GalleryActivity"
             android:label="@string/title_activity_gallery"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.SelectGiftActivity"
+            android:name=".SelectGiftActivity"
             android:label="@string/title_activity_select_gift"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.SendGiftActivity"
+            android:name=".SendGiftActivity"
             android:label="@string/title_activity_send_gift"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.GiftsActivity"
+            android:name=".GiftsActivity"
             android:label="@string/title_activity_gifts"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.FriendsActivity"
+            android:name=".FriendsActivity"
             android:label="@string/title_activity_friends"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.MatchesActivity"
+            android:name=".MatchesActivity"
             android:label="@string/title_activity_matches"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.BalanceActivity"
+            android:name=".BalanceActivity"
             android:label="@string/title_activity_balance"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.ViewImageActivity"
+            android:name=".ViewImageActivity"
             android:label="@string/title_activity_view_gallery_item"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.LikersActivity"
+            android:name=".LikersActivity"
             android:label="@string/title_activity_likers" />
         <activity
-            android:name="com.deificdigital.chaska.VideoViewActivity"
+            android:name=".VideoViewActivity"
             android:configChanges="orientation|screenSize|layoutDirection"
             android:label="@string/title_activity_video_view"
             android:theme="@style/PhotoViewTheme" />
         <activity
-            android:name="com.deificdigital.chaska.WelcomeActivity"
+            android:name=".WelcomeActivity"
             android:label="@string/title_activity_welcome" />
         <activity
-            android:name="com.deificdigital.chaska.ReferralsActivity"
+            android:name=".ReferralsActivity"
             android:label="@string/title_activity_referrals"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.SelectFeelingActivity"
+            android:name=".SelectFeelingActivity"
             android:label="@string/title_activity_feelings"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.UpgradesActivity"
+            android:name=".UpgradesActivity"
             android:label="@string/title_activity_upgrades"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.GuestsActivity"
+            android:name=".GuestsActivity"
             android:label="@string/title_activity_guests"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.LikedActivity"
+            android:name=".LikedActivity"
             android:label="@string/title_activity_liked"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.RegisterActivity"
+            android:name=".RegisterActivity"
             android:label="@string/title_activity_signup" />
         <activity
-            android:name="com.deificdigital.chaska.BalanceHistoryActivity"
+            android:name=".BalanceHistoryActivity"
             android:label="@string/title_activity_balance_history" />
         <activity
-            android:name="com.deificdigital.chaska.SpotlightActivity"
+            android:name=".SpotlightActivity"
             android:label="@string/title_activity_spotlight" />
         <activity
-            android:name="com.deificdigital.chaska.OtpVerificationActivity"
+            android:name=".OtpVerificationActivity"
             android:label="@string/title_activity_otp_verification" />
         <activity
-            android:name="com.deificdigital.chaska.SearchActivity"
+            android:name=".SearchActivity"
             android:label="@string/title_activity_search"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.StreamActivity"
+            android:name=".StreamActivity"
             android:label="@string/title_activity_stream"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.deificdigital.chaska.CaptureActivity"
+            android:name=".CaptureActivity"
             android:label="@string/title_activity_capture"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme.Capture" />
         <activity
-            android:name="com.deificdigital.chaska.CapturePreviewActivity"
+            android:name=".CapturePreviewActivity"
             android:label="@string/title_activity_preview_capture"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme" />

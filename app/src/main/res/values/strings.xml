@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Dating App</string>
+    <string name="app_name" translatable="false">Chaska</string>
     <string name="app_version" translatable="false">6.6</string>
     <string name="app_year" translatable="false">2022</string>
     <string name="app_copyright" translatable="false">datingnet.xyz</string>
